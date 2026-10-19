@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo layout với các thẻ HTML5 và CSS</title>
+    <style>
+        /* Thiết lập phông chữ và reset khoảng cách cơ bản */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* Khung bao bọc toàn bộ trang web */
+        .wrapper {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        /* Thẻ ngữ nghĩa HTML5: Header vùng đầu trang */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        /* Thẻ ngữ nghĩa HTML5: Thanh điều hướng */
+        nav {
+            background-color: #34495e;
+            padding: 12px 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /* Thùng chứa trung tâm chia cột */
+        .main-container {
+            display: flex; /* Dàn hàng ngang cột nội dung và sidebar bằng Flexbox */
+            padding: 20px;
+            gap: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Thẻ ngữ nghĩa HTML5: Vùng nội dung lớn chứa các bài viết */
+        section {
+            flex: 3; /* Chiếm 3 phần độ rộng */
+            background-color: #ffffff;
+        }
+
+        /* Thẻ ngữ nghĩa HTML5: Bài viết độc lập bên trong section */
+        article {
+            background-color: #fafafa;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        article h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        /* Thẻ ngữ nghĩa HTML5: Thanh bên chứa thông tin phụ */
+        aside {
+            flex: 1; /* Chiếm 1 phần độ rộng */
+            background-color: #fdfefe;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 4px;
+            align-self: flex-start;
+        }
+
+        aside h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 5px;
+        }
+
+        aside ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        /* Thẻ ngữ nghĩa HTML5: Vùng chân trang */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Khung bao cấu trúc chung -->
+    <div class="wrapper">
+
+        <!-- HEADER: Tiêu đề trang -->
+        <header>
+            <h1>Trang Tin Công Nghệ HTML5</h1>
+        </header>
+
+        <!-- NAV: Menu điều hướng -->
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Tin tức</a></li>
+                <li><a href="#">Lập trình</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+
+        <!-- BỐ CỤC CHÍNH CHỨA SECTION & ASIDE -->
+        <div class="main-container">
+            
+            <!-- SECTION: Chứa danh sách các bài báo -->
+            <section>
+                
+                <!-- ARTICLE 1 -->
+                <article>
+                    <h2>Tìm hiểu về Thẻ Ngữ Nghĩa HTML5</h2>
+                    <p>Các thẻ ngữ nghĩa như header, nav, section, article giúp cấu trúc mã nguồn trang web rõ ràng, mạch lạc hơn. Trình duyệt và các công cụ tìm kiếm (SEO) có thể dễ dàng hiểu được vai trò của từng vùng dữ liệu thay vì bọc tất cả bằng thẻ div vô nghĩa.</p>
+                </article>
+
+                <!-- ARTICLE 2 -->
+                <article>
+                    <h2>Lợi ích của việc kết hợp HTML5 và CSS Layout</h2>
+                    <p>Khi sử dụng các thẻ HTML5 chuẩn kết hợp cùng các phương pháp dàn trang hiện đại như Flexbox hay CSS Grid, bạn sẽ tạo ra những giao diện phản hồi tốt (Responsive), chạy mượt mà trên cả máy tính lẫn điện thoại.</p>
+                </article>
+
+            </section>
+
+            <!-- ASIDE: Thanh thông tin phụ bên cạnh -->
+            <aside>
+                <h3>Chuyên mục</h3>
+                <ul>
+                    <li>Lập trình Web cơ bản</li>
+                    <li>Thực hành Front-end</li>
+                    <li>Mẹo tối ưu SEO</li>
+                </ul>
+            </aside>
+
+        </div>
+
+        <!-- FOOTER: Chân trang bản quyền -->
+        <footer>
+            <p>© 2026 Thực hành Lập trình Web Frontend - Khóa học HTML5/CSS3.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
