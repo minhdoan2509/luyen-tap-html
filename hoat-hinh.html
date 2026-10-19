@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidToon - Trang Web Xem Hoạt Hình Trực Tuyến Hữu Ích</title>
+    <style>
+        /* ==========================================
+           1. THIẾT LẬP CƠ BẢN & PHẦN MỨC TRUNG BÌNH
+           ========================================== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f3f6;
+            color: #333;
+            /* Đẩy nội dung xuống 70px để không bị phần Header cố định che khuất */
+            padding-top: 70px; 
+        }
+
+        /* Loại bỏ gạch chân mặc định của mọi liên kết */
+        a {
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        /* Hiệu ứng khi rê chuột vào liên kết: Bôi đậm và đổi màu chữ */
+        a:hover {
+            font-weight: bold;
+            color: #e74c3c !important;
+        }
+
+        /* ==========================================
+           2. BỐ CỤC HEADER CỐ ĐỊNH (FIXED HEADER)
+           ========================================== */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-sizing: border-box;
+            z-index: 1000; /* Luôn nổi lên trên cùng */
+        }
+
+        /* Logo nằm bên trái */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2ecc71;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Thanh điều hướng (Head-link) nằm bên phải */
+        .head-link ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .head-link ul li a {
+            color: #34495e;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* ==========================================
+           3. PHÂN CHIA BỐ CỤC KHU VỰC NỘI DUNG (CONTENT)
+           ========================================== */
+        .page-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            gap: 25px;
+            box-sizing: border-box;
+        }
+
+        /* LEFT CONTENT: Menu hiển thị danh sách video có sẵn */
+        .left-content {
+            width: 30%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            align-self: flex-start;
+        }
+
+        .search-box {
+            margin-bottom: 15px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filter-buttons button {
+            flex: 1;
+            padding: 8px;
+            background-color: #e8f8f5;
+            border: 1px solid #2ecc71;
+            color: #27ae60;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .video-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .video-item {
+            padding: 12px;
+            border-bottom: 1px solid #f1f2f6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .video-item:last-child {
+            border-bottom: none;
+        }
+
+        .video-item img {
+            width: 60px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .video-item-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+
+        .video-item-info span {
+            font-size: 11px;
+            color: #95a5a6;
+            background: #f1f2f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        /* RIGHT CONTENT: Khu vực phát và xem video chính */
+        .right-content {
+            width: 70%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Khung chứa video tỉ lệ 16:9 chuẩn HD/FullHD không giật lag */
+        .video-player-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Tỉ lệ màn hình 16:9 */
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+            border-radius: 6px;
+        }
+
+        .video-player-wrapper iframe, 
+        .video-player-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-main-title {
+            margin: 20px 0 10px 0;
+            font-size: 22px;
+            color: #2c3e50;
+        }
+
+        .video-meta {
+            font-size: 13px;
+            color: #7f8c8d;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .video-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* ==========================================
+           4. BỐ CỤC FOOTER THÔNG TIN BẢN QUYỀN
+           ========================================== */
+        .main-footer {
+            background-color: #34495e;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        /* ==========================================
+           5. MỨC NÂNG CAO: RESPONSIVE DESIGN
+           ========================================== */
+        
+        /* Giao diện dành cho Máy tính bảng (Tablet - Dưới 768px) */
+        @media (max-width: 768px) {
+            .page-container {
+                flex-direction: column; /* Chuyển bố cục từ hàng ngang thành hàng dọc */
+            }
+            .left-content, .right-content {
+                width: 100%; /* Đẩy độ rộng hai phần lên tối đa */
+            }
+            .left-content {
+                order: 2; /* Đưa danh sách chọn phim xuống dưới màn hình phát */
+            }
+            .right-content {
+                order: 1; /* Ưu tiên màn hình xem phim lên trên đầu */
+            }
+        }
+
+        /* Giao diện dành cho Điện thoại di động (Mobile - Dưới 480px) */
+        @media (max-width: 480px) {
+            .main-header {
+                flex-direction: column; /* Xếp dọc logo và menu ở header */
+                height: auto;
+                padding: 10px;
+            }
+            body {
+                padding-top: 110px; /* Tăng padding do header cao hơn */
+            }
+            .head-link ul {
+                gap: 15px;
+                margin-top: 8px;
+            }
+            .head-link ul li a {
+                font-size: 14px;
+            }
+            .video-main-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- KHU VỰC HEADER (MỨC CƠ BẢN & TRUNG BÌNH) -->
+    <header class="main-header">
+        <div class="logo">🧸 KidToon TV</div>
+        <nav class="head-link">
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Phim mới</a></li>
+                <li><a href="#">Phổ biến</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- KHU VỰC TRUNG TÂM (CONTENT) -->
+    <div class="page-container">
+        
+        <!-- LEFT CONTENT: MENU VIDEO -->
+        <aside class="left-content">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm phim hoạt hình...">
+            </div>
+            
+            <div class="filter-buttons">
+                <button type="button">Mới cập nhật</button>
+                <button type="button">Xem nhiều nhất</button>
+            </div>
+
+            <ul class="video-menu-list">
+                <li class="video-item" style="background-color: #f9f9f9; border-radius: 4px;">
+                    <img src="https://unsplash.com" alt="Thumb">
+                    <div class="video-item-info">
+                        <h4>Oggy và những chú gián - Tập 1</h4>
+                        <span>Thuyết minh tiếng Việt</span>
+                    </div>
+                </li>
+                <li class="video-item">
+                    <img src="https://unsplash.com" alt="Thumb">
+                    <div class="video-item-info">
+                        <h4>Doraemon Chú Mèo Máy - Tập 45</h4>
+                        <span>FullHD 1080p</span>
+                    </div>
+                </li>
+                <li class="video-item">
+                    <img src="https://unsplash.com" alt="Thumb">
+                    <div class="video-item-info">
+                        <h4>Chuột Mickey khám phá thế giới</h4>
+                        <span>HD 720p</span>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- RIGHT CONTENT: TRÌNH PHÁT VIDEO CHÍNH -->
+        <main class="right-content">
