@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Tạo bố cục responsive bằng CSS Flexbox</title>
+    <style>
+        /* Reset khoảng cách cơ bản để tính toán Box Model chuẩn xác */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Khung container bao bọc toàn bộ trang web */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 1. Định kiểu cho phân vùng Header (Tiêu đề trang) */
+        .header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* 2. Định kiểu cho phân vùng Navigation (Menu điều hướng) */
+        .nav {
+            background-color: #34495e;
+            padding: 12px 20px;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Khung chứa trung tâm kết hợp Flexbox điều khiển Sidebar và Content */
+        .main-container {
+            display: flex;
+            flex: 1; /* Tự động kéo giãn chiều cao chiếm phần không gian trống */
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* 3. Phân vùng Main Content: Khu vực hiển thị nội dung chính (chiếm 3 phần) */
+        .content {
+            flex: 3;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .content h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        /* 4. Phân vùng Sidebar: Chứa nội dung phụ phụ tin tức, quảng cáo (chiếm 1 phần) */
+        .sidebar {
+            flex: 1;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
+            align-self: flex-start; /* Giữ nguyên chiều cao theo nội dung con */
+        }
+
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* 5. Định kiểu cho phân vùng Footer (Thông tin cuối trang) */
+        .footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        /* ==========================================================
+           YÊU CẦU RESPONSIVE: CHO THIẾT BỊ DI ĐỘNG (Màn hình dưới 768px)
+           ========================================================== */
+        @media (max-width: 768px) {
+            /* Các phần tử tại main-container chuyển từ hàng ngang thành hàng dọc */
+            .main-container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            /* Cấu hình menu điều hướng căn giữa trên mobile */
+            .nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            /* Kéo giãn chiều rộng các khối con đạt tối đa 100% */
+            .content, .sidebar {
+                width: 100%;
+            }
+
+            /* Điều chỉnh lại hướng hiển thị: Ưu tiên đưa Content lên trên Sidebar */
+            .sidebar {
+                border-left: none;
+                border-top: 4px solid #3498db;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Khung bao cấu trúc lưới CSS Flexbox -->
+    <div class="wrapper">
+
+        <!-- Header -->
+        <header class="header">
+            TRANG CHỦ ĐA PHƯƠNG TIỆN FLEXBOX
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Tin tức</a></li>
+                <li><a href="#">Sản phẩm</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Container chứa Content & Sidebar -->
+        <div class="main-container">
+            
+            <!-- Main Content -->
+            <main class="content">
+                <h2>Nội dung chính của trang web</h2>
+                <p>Đây là phân vùng hiển thị thông tin bài viết cốt lõi. Bố cục này được xây dựng hoàn toàn dựa trên mô hình hộp linh hoạt CSS Flexbox. Khi hiển thị trên môi trường Desktop, vùng nội dung này sẽ chiếm 3 phần diện tích ngang phối hợp nhịp nhàng với thanh Sidebar bên cạnh để tối ưu không gian hiển thị.</p>
+                <p style="margin-top: 15px;">Khi kích thước cửa sổ thu nhỏ lại hoặc chuyển sang các thiết bị di động (Mobile) có chiều rộng dưới 768px, quy tắc Media Queries lập tức được kích hoạt, chuyển đổi cấu trúc thuộc tính <code>flex-direction: column</code> để đưa toàn bộ hệ thống sang hàng dọc nối đuôi nhau mạch lạc.</p>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Thanh bên (Sidebar)</h3>
+                <p>Chuyên mục tin tức phụ, danh sách bài viết liên quan hoặc các banner quảng cáo tối ưu hóa trải nghiệm.</p>
+            </aside>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            © 2026 Hệ thống Bố cục Responsive CSS Flexbox Layout. All rights reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
