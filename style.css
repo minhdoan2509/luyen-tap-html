@@ -1,0 +1,37 @@
+/* Thiết lập màu sắc và khoảng cách hiển thị đúng */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f5f6fa;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+/* Định dạng dấu đầu dòng cho danh sách */
+.custom-list {
+    /* Kiểm tra: Kiểu đánh dấu thay đổi đúng yêu cầu (chuyển sang hình vuông điền đầy) */
+    list-style-type: square;
+    
+    /* Kiểm tra: Vị trí dấu đánh dấu thay đổi đúng (đưa vào bên trong khối nội dung) */
+    list-style-position: inside;
+    
+    /* Kiểm tra: Khoảng cách hiển thị đúng */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.custom-list li {
+    /* Kiếm tra: Màu sắc và khoảng cách giữa các phần tử */
+    color: #2f3640;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px dashed #dcdde1;
+}
+
+.custom-list li:last-child {
+    border-bottom: none;
+}
