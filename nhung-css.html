@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bài tập Nhúng CSS vào trang HTML</title>
+
+    <!-- Phần 2: Sử dụng Internal-style (CSS nội bộ) -->
+    <style>
+        .internal-title {
+            color: #2ecc71; /* Màu xanh lá cây */
+        }
+        .internal-text {
+            color: #d35400; /* Màu cam */
+        }
+    </style>
+
+    <!-- Phần 3: Sử dụng External-style (Liên kết file CSS bên ngoài) -->
+    <!-- Chú ý gọi đúng tên file CSS mà bạn sẽ tạo ở bước sau -->
+    <link rel="stylesheet" href="style-nhung.css">
+</head>
+<body>
+
+    <h1>Thực hành 3 cách nhúng CSS</h1>
+
+    <!-- ========================================== -->
+    <!-- PHẦN 1: SỬ DỤNG INLINE-STYLE (Trực tiếp trên thẻ) -->
+    <div style="margin-bottom: 30px; padding: 15px; border: 1px solid #ccc;">
+        <h2 style="color: #3498db;">Tiêu đề Phần 1 (Inline-style màu xanh dương)</h2>
+        <p style="color: #e74c3c;">Đây là đoạn văn Phần 1 được đổi sang màu đỏ bằng cách viết style trực tiếp.</p>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PHẦN 2: SỬ DỤNG INTERNAL-STYLE (Thông qua thẻ style ở head) -->
+    <div style="margin-bottom: 30px; padding: 15px; border: 1px solid #ccc;">
+        <h2 class="internal-title">Tiêu đề Phần 2 (Internal-style màu xanh lá)</h2>
+        <p class="internal-text">Đây là đoạn văn Phần 2 được định kiểu thông qua class đặt trong thẻ style ở head.</p>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PHẦN 3: SỬ DỤNG EXTERNAL-STYLE (Thông qua file CSS bên ngoài) -->
+    <div style="margin-bottom: 30px; padding: 15px; border: 1px solid #ccc;">
+        <h2 class="external-title">Tiêu đề Phần 3 (External-style màu tím)</h2>
+        <p class="external-text">Đây là đoạn văn Phần 3 được định kiểu bằng cách gọi từ file style-nhung.css bên ngoài.</p>
+    </div>
+
+</body>
+</html>
