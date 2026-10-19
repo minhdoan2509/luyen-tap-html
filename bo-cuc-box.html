@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Xây dựng bố cục với Mô hình hộp CSS</title>
+    <!-- Nhiệm vụ 1: Liên kết file CSS vào trang HTML -->
+    <link rel="stylesheet" href="style-bo-cuc.css">
+</head>
+<body>
+
+    <h1>Thực hành Mô hình hộp (Box Model)</h1>
+
+    <!-- Nhiệm vụ 2: Tạo ba phần tử div có cùng class là card -->
+    <!-- Thẻ thứ nhất: Sử dụng content-box -->
+    <div class="card">
+        <h3>Content-Box Card</h3>
+        <p>Thẻ này sử dụng thuộc tính box-sizing mặc định. Kích thước thực tế sẽ bị cộng thêm padding và border.</p>
+    </div>
+
+    <!-- Thẻ thứ hai: Sử dụng border-box -->
+    <div class="card">
+        <h3>Border-Box Card (Vàng)</h3>
+        <p>Thẻ này sử dụng border-box giúp cố định kích thước bao ngoài chuẩn 280px x 150px.</p>
+    </div>
+
+    <!-- Thẻ thứ ba: Sử dụng border-box -->
+    <div class="card">
+        <h3>Border-Box Card (Đỏ)</h3>
+        <p>Thẻ này cũng dùng border-box giúp việc tính toán khoảng cách bố cục chính xác và dễ dàng hơn.</p>
+    </div>
+
+</body>
+</html>
