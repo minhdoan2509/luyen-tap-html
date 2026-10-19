@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo gallery đơn giản sử dụng RWD</title>
+    <style>
+        /* Thiết lập Box Model và reset cơ bản */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        /* Khung chứa các phần tử ảnh, sử dụng Flexbox */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Định kiểu cho từng ô chứa ảnh */
+        .gallery-item {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Định kiểu hình ảnh bên trong */
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* Chú thích ảnh */
+        .gallery-item p {
+            text-align: center;
+            padding: 8px 0 4px 0;
+            color: #4a5568;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* ==========================================================
+           CẤU HÌNH RESPONSIVE (RWD) THEO CHÍNH XÁC YÊU CẦU ĐỀ BÀI
+           ========================================================== */
+
+        /* 1. Với màn hình có độ rộng lớn hơn 700px: hiển thị 4 ảnh trên một dòng */
+        @media (min-width: 701px) {
+            .gallery-item {
+                /* Trừ đi khoảng cách gap để xếp vừa vặn 4 khối trên 1 hàng */
+                width: calc((100% - (16px * 3)) / 4); 
+            }
+        }
+
+        /* 2. Với màn hình nhỏ hơn 700px (và lớn hơn 500px): hiển thị 2 ảnh trên một dòng */
+        @media (max-width: 700px) and (min-width: 501px) {
+            .gallery-item {
+                width: calc((100% - 16px) / 2);
+            }
+        }
+
+        /* 3. Với màn hình nhỏ hơn 500px: hiển thị 1 ảnh trên một dòng */
+        @media (max-width: 500px) {
+            .gallery-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bộ Sưu Tập Ảnh Responsive</h1>
+
+    <!-- Khung chứa danh sách các thẻ hình ảnh -->
+    <div class="gallery-container">
+        
+        <div class="gallery-item">
+            <img src="https://unsplash.com" alt="Landscape 1">
+            <p>Thiên nhiên 1</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://unsplash.com" alt="Landscape 2">
+            <p>Thiên nhiên 2</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://unsplash.com" alt="Landscape 3">
+            <p>Thiên nhiên 3</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://unsplash.com" alt="Landscape 4">
+            <p>Thiên nhiên 4</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://unsplash.com" alt="Landscape 5">
+            <p>Thiên nhiên 5</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://unsplash.com" alt="Landscape 6">
+            <p>Thiên nhiên 6</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
