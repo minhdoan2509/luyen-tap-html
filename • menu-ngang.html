@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Thực hành Tạo menu ngang dropdown</title>
+    <style>
+        /* Thiết lập phông chữ và định dạng vùng chứa cho toàn tài liệu */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f6fa;
+        }
+
+        /* Định nghĩa phân vùng cho toàn bộ trình đơn (chiều cao, đường viền, khoảng cách và màu nền) */
+        #menu {
+            background-color: #2c3e50;
+            height: 40px;
+            border-radius: 4px;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Loại bỏ các ký hiệu đánh dấu đầu dòng mặc định và khoảng cách thừa */
+        #menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Định nghĩa bộ chọn riêng cho các phần tử trong danh sách mẹ (dàn hàng ngang) */
+        #menu > ul > li {
+            float: left;
+            position: relative; /* Làm gốc định vị cho menu con đổ xuống */
+            height: 40px;
+        }
+
+        /* Định nghĩa bộ chọn dành cho các liên kết trong trình đơn (độ rộng, chiều cao, căn lề, hiển thị) */
+        #menu li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            line-height: 40px;      /* Căn giữa chữ theo chiều dọc */
+            padding: 0 20px;        /* Khoảng cách hai bên ô menu */
+            font-size: 15px;
+            text-align: center;
+        }
+
+        /* Chuyển màu nền của liên kết sang màu đỏ khi xảy ra sự kiện đưa con trỏ qua (hover) */
+        #menu li a:hover {
+            background-color: #e74c3c;
+        }
+
+        /* Định nghĩa bộ chọn dành cho các danh sách con (trình đơn con) để quy định vị trí hiển thị */
+        #menu ul ul {
+            position: absolute;
+            top: 40px;             /* Xuất hiện ngay sát mép dưới của thanh menu mẹ */
+            left: 0;
+            width: 160px;          /* Độ rộng cố định cho các mục menu con */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            
+            /* Đảm bảo các trình đơn bị ẩn mặc định, không đè lên nhau khi chưa tương tác */
+            visibility: hidden;
+        }
+
+        /* Định dạng các mục li bên trong menu con xếp dọc lại xuống dưới */
+        #menu ul ul li {
+            float: none;
+            background-color: #34495e;
+            border-bottom: 1px solid #2c3e50;
+        }
+
+        /* Căn chỉnh lại padding và text-align cho chữ trong menu con gọn gàng */
+        #menu ul ul li a {
+            text-align: left;
+            padding: 0 15px;
+            line-height: 35px;
+        }
+
+        /* Trình đơn con bị ẩn sẽ hiển thị mỗi khi con trỏ được đưa qua mục chọn của trình đơn cha */
+        #menu li:hover > ul {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Menu ngang Dropdown</h1>
+    <p>Di chuột vào mục <b>"Khóa học"</b> hoặc <b>"Tin tức"</b> để xem menu con thả dọc xuống phía dưới.</p>
+
+    <!-- Cấu trúc danh sách các liên kết lồng nhau hai cấp nằm trong phân vùng #menu -->
+    <div id="menu">
+        <ul>
+            <li><a href="#trangchu">Trang chủ</a></li>
+            <li>
+                <a href="#khoahoc">Khóa học</a>
+                <!-- Trình đơn con cấp 2 -->
+                <ul>
+                    <li><a href="#html">Lập trình HTML</a></li>
+                    <li><a href="#css">Thiết kế CSS</a></li>
+                    <li><a href="#js">Javascript cơ bản</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#tintuc">Tin tức</a>
+                <!-- Trình đơn con cấp 2 -->
+                <ul>
+                    <li><a href="#congnghe">Công nghệ</a></li>
+                    <li><a href="#sukien">Sự kiện nội bộ</a></li>
+                </ul>
+            </li>
+            <li><a href="#lienhe">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
