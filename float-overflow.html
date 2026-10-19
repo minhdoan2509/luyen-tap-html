@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bố cục với Float và Overflow</title>
+    <style>
+        /* Áp dụng quy tắc áp kích thước Box Model chuẩn theo hình 2 */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f6fa;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        /* .container: Khung chứa 2 cột, dùng overflow: hidden để bao bọc các cột float */
+        .container {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        /* .left-column: Cột bên trái rộng 50%, xếp về bên trái */
+        .left-column {
+            width: 50%;
+            float: left;
+            background-color: lightgray;
+            padding: 20px;
+            min-height: 100px;
+            font-weight: bold;
+        }
+
+        /* .right-column: Cột bên phải rộng 50%, xếp về bên phải */
+        .right-column {
+            width: 50%;
+            float: right;
+            background-color: lightblue;
+            padding: 20px;
+            min-height: 100px;
+            font-weight: bold;
+        }
+
+        /* .overflow-box: Khung chứa nội dung dài, tự xuất hiện thanh cuộn dọc (Hình 3) */
+        .overflow-box {
+            width: 300px;
+            height: 100px;
+            background-color: lightcoral;
+            padding: 10px;
+            overflow: auto; /* Tạo thanh cuộn tự động khi văn bản bị tràn */
+            color: white;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Khối nội dung chứa 2 cột sử dụng float để căn trái và phải -->
+    <h1>Bố cục trang với float và overflow</h1>
+    
+    <div class="container">
+        <div class="left-column">Nội dung bên trái</div>
+        <div class="right-column">Nội dung bên phải</div>
+    </div>
+
+    <!-- Khối chứa nội dung dài, sử dụng overflow để hiển thị thanh cuộn khi nội dung quá dài -->
+    <div class="overflow-box">
+        Đây là nội dung rất dài mà chúng ta kiểm tra thuộc tính overflow. Khi bạn thêm thật nhiều văn bản vào đây vượt quá chiều cao giới hạn 100px của chiếc hộp màu đỏ cam này, một thanh cuộn dọc sẽ tự động xuất hiện ở mép phải để người dùng cuộn xuống xem.
+    </div>
+
+</body>
+</html>
