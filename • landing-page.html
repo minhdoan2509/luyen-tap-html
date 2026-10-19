@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Responsive</title>
+    
+    <!-- Bước 2 & Bước 3: Định dạng CSS Layout và làm Responsive với Media Queries -->
+    <style>
+        /* Thiết lập Box Model chuẩn */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Định kiểu thanh Header điều hướng */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Định kiểu khu vực trung tâm Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #f4f4f4;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #7f8c8d;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Định kiểu phân vùng Dịch vụ (Services) */
+        .services {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .services h2 {
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .service-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service {
+            flex: 1;
+            min-width: 250px;
+            background-color: lightblue;
+            padding: 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Định kiểu phân vùng Đánh giá (Testimonials) */
+        .testimonials {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #ddd;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .testimonial {
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        /* Định kiểu khu vực chân trang Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        /* ==========================================================
+           Bước 3: Làm Responsive cho Mobile bằng Media Queries (Dưới 768px)
+           ========================================================== */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav ul {
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .service-container {
+                flex-direction: column;
+            }
+
+            .service {
+                width: 100%;
+            }
+
+            .services,
+            .testimonials {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bước 1: Khởi tạo cấu trúc tài liệu HTML -->
+    <header class="header">
+        <div class="logo">MyBrand</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#services">Dịch vụ</a></li>
+                <li><a href="#">Đánh giá</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Khu vực Hero Section giới thiệu -->
+    <section class="hero">
+        <h1>Chào mừng đến với MyBrand</h1>
+        <p>Giải pháp số 1 cho doanh nghiệp của bạn</p>
+        <a href="#services" class="btn">Tìm hiểu thêm</a>
+    </section>
+
+    <!-- Phân vùng hiển thị danh sách các Dịch vụ -->
+    <section id="services" class="services">
+        <h2>Dịch vụ của chúng tôi</h2>
+        <div class="service-container">
+            <div class="service">Thiết kế web</div>
+            <div class="service">Phát triển phần mềm</div>
+            <div class="service">Marketing số</div>
+        </div>
+    </section>
+
+    <!-- Phân vùng ý kiến Khách hàng (Testimonials) -->
+    <section class="testimonials">
+        <h2>Khách hàng nói gì?</h2>
+        <div class="testimonial">"Dịch vụ rất chuyên nghiệp, giao diện đẹp mắt và hỗ trợ kỹ thuật vô cùng tận tâm!"</div>
+    </section>
+
+    <!-- Vùng chân trang Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 MyBrand. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
