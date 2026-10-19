@@ -1,0 +1,63 @@
+/* 1. Bộ chọn Phần tử (Element Selector) - Đổi màu nền toàn bộ trang */
+body {
+    background-color: #f0f3f6;
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+/* 2. Bộ chọn Định danh (ID Selector) - Căn giữa tiêu đề h1 */
+#main-title {
+    text-align: center;
+    color: #2980b9;
+}
+
+/* 3. Bộ chọn Lớp (Class Selector) & Nhóm sở thích với màu sắc khác nhau */
+.description {
+    font-size: 16px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #2980b9;
+}
+
+.hobby-list {
+    padding-left: 20px;
+}
+
+/* Định dạng các mục danh sách sở thích với màu sắc khác nhau */
+.hobby-item-1 {
+    color: #e74c3c; /* Màu đỏ */
+    font-weight: bold;
+}
+
+.hobby-item-2 {
+    color: #27ae60; /* Màu xanh lá */
+    font-weight: bold;
+}
+
+.hobby-item-3 {
+    color: #8e44ad; /* Màu tím */
+    font-weight: bold;
+}
+
+/* 4. Định dạng nút bấm và bộ chọn lớp giả (Pseudo-class Selector :hover) */
+.btn-action {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Tạo hiệu ứng mượt mà */
+}
+
+/* Hiệu ứng hover effect khi di chuột vào nút bấm */
+.btn-action:hover {
+    background-color: #1e3799; /* Đổi màu nền đậm hơn */
+    transform: translateY(-2px); /* Nút bấm hơi nhích lên */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
