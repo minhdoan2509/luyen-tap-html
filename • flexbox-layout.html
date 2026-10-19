@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout</title>
+    
+    <!-- Bước 2 & Bước 3: Định dạng CSS Flexbox cho Desktop và Responsive Mobile -->
+    <style>
+        /* Reset khoảng cách cơ bản nhằm áp dụng Box Model chuẩn xác */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Khung container chứa toàn bộ bố cục, sắp xếp các khối theo chiều dọc */
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Chiều cao bằng 100% màn hình hiển thị */
+        }
+
+        /* Định kiểu chung cho vùng Đầu trang (Header) và Chân trang (Footer) */
+        .header, .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Định kiểu cho thanh điều hướng (Navigation) */
+        .nav {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Khung chứa ở giữa sử dụng Flexbox để dàn hàng ngang hai khối con */
+        .main-container {
+            display: flex;
+            flex: 1; /* Tự động kéo giãn chiều cao để lấp đầy vùng trống */
+        }
+
+        /* Vùng nội dung chính chiếm 3 phần độ rộng */
+        .content {
+            flex: 3;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        /* Vùng thanh bên phụ chiếm 1 phần độ rộng */
+        .sidebar {
+            flex: 1;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        /* ==========================================================
+           Bước 3: Cấu hình Responsive cho Mobile bằng Media Queries
+           ========================================================== */
+        @media (max-width: 768px) {
+            /* Khi màn hình nhỏ hơn 768px, trục chính của thân bài chuyển thành chiều dọc */
+            .main-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bước 1: Khởi tạo cấu trúc lưới HTML ngữ nghĩa tổng thể -->
+    <div class="container">
+        <header class="header">Header</header>
+        <nav class="nav">Navigation</nav>
+        
+        <div class="main-container">
+            <main class="content">Main Content</main>
+            <aside class="sidebar">Sidebar</aside>
+        </div>
+        
+        <footer class="footer">Footer</footer>
+    </div>
+
+</body>
+</html>
