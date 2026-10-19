@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Navbar</title>
+    <!-- Bước 1: Nhúng thư viện Bootstrap CSS qua đường link CDN -->
+    <link rel="stylesheet" href="https://jsdelivr.net">
+</head>
+<body>
+
+    <!-- Bước 2.2 & 2.4: Khung cấu trúc hoàn thiện của thanh điều hướng Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Tên thương hiệu / Logo -->
+            <a class="navbar-brand" href="#">MyWebsite</a>
+            
+            <!-- Nút bấm hiển thị menu ba gạch khi thu nhỏ trên màn hình di động (Mobile Toggler) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Vùng chứa danh sách các mục liên kết điều hướng -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Mục Trang chủ (được thiết lập trạng thái active làm nổi bật) -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <!-- Mục Giới thiệu -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <!-- Mục danh sách thả xuống nâng cao (Dropdown Menu) -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Web Design</a></li>
+                            <li><a class="dropdown-item" href="#">SEO</a></li>
+                        </ul>
+                    </li>
+                    <!-- Mục Liên hệ -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Khối nội dung mẫu để bạn dễ quan sát giao diện -->
+    <div class="container mt-5">
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">Xin chào!</h1>
+                <p class="col-md-8 fs-4">Đây là trang web thực hành nhúng thanh điều hướng chuyên nghiệp bằng thư viện Bootstrap 5. Hãy thử thu nhỏ cửa sổ trình duyệt để xem menu chuyển sang dạng Mobile.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bước 1: Nhúng tệp tin JavaScript của Bootstrap trước thẻ đóng body để chạy tính năng dropdown & menu mobile -->
+    <script src="https://jsdelivr.net"></script>
+</body>
+</html>
