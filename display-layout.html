@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bố cục với display</title>
+    
+    <!-- Áp dụng toàn bộ quy tắc CSS theo yêu cầu từ ví dụ mong đợi -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f6fa;
+            margin: 40px 0;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        section {
+            margin-top: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .box {
+            display: inline-block;
+            width: 30%;
+            padding: 20px;
+            background-color: lightblue;
+            margin: 10px;
+            box-sizing: border-box; /* Đảm bảo padding không làm vỡ hàng */
+            border-radius: 4px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bố cục trang web với display</h1>
+    
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Dịch vụ</a>
+        <a href="#">Liên hệ</a>
+    </nav>
+
+    <section>
+        <div class="box">Cột 1</div>
+        <div class="box">Cột 2</div>
+        <div class="box">Cột 3</div>
+    </section>
+
+    <footer>
+        <p>Bản quyền &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
