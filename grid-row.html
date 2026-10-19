@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Row</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f6fa;
+        }
+
+        /* Định nghĩa khung Grid gồm 3 cột và các hàng cao 100px (Hình 1 & 2) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100px);
+            gap: 10px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Định kiểu chung cho các ô dữ liệu con */
+        .item {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #2980b9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 💡 Thí nghiệm thuộc tính grid-row áp dụng cho Ô 1 (Hình 2 & 3) */
+        .item1 {
+            background-color: #ff7675; /* Đổi màu đỏ cam cho ô 1 để dễ quan sát vị trí */
+            color: white;
+            border-color: #d63031;
+
+            /* --- CÁC BƯỚC THỬ NGHIỆM THEO YÊU CẦU ĐỀ BÀI (Hình 3) --- */
+            
+            grid-row: 1 / 3;     /* Bước 2: Bắt đầu từ hàng 1 đến hàng 3 (Ô 1 chiếm 2 hàng trên cùng) */
+            
+            /* grid-row: 2 / 4; */ /* Bước 3: Hãy bỏ dấu chú thích ở dòng này nếu muốn ô 1 dịch xuống hàng 2 và 3 */
+            
+            /* grid-row: span 2; */ /* Bước 4: Hãy bỏ dấu chú thích ở dòng này nếu muốn dùng từ khóa tự động chiếm 2 hàng */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Thực hành: Thuộc tính grid-row</h1>
+    <p style="margin-bottom: 15px;">Ô số 1 (màu đỏ) đang được áp dụng thuộc tính <code>grid-row</code> để gộp hàng dọc.</p>
+
+    <!-- Cấu trúc 6 ô nội dung lồng trong container theo đúng hình 1 -->
+    <div class="grid-container">
+        <div class="item item1">Ô 1</div>
+        <div class="item">Ô 2</div>
+        <div class="item">Ô 3</div>
+        <div class="item">Ô 4</div>
+        <div class="item">Ô 5</div>
+        <div class="item">Ô 6</div>
+    </div>
+
+</body>
+</html>
