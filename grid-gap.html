@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành thuộc tính grid-gap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+        /* Định dạng khung Grid chung */
+        .grid-container {
+            display: grid;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .grid-container div {
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* -------------------------------------------------------------
+           Ví dụ 1: Thiết lập khoảng cách hàng và cột bằng nhau (20px)
+           ------------------------------------------------------------- */
+        .container-equal {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px; /* Hàng cách hàng 20px, cột cách cột 20px */
+        }
+
+        .container-equal div {
+            background-color: lightblue;
+            border: 1px solid #2980b9;
+        }
+
+        /* -------------------------------------------------------------
+           Ví dụ 2: Thiết lập khoảng cách hàng và cột khác nhau (30px 10px)
+           ------------------------------------------------------------- */
+        .container-mixed {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px 10px; /* Hàng cách hàng 30px, cột cách cột 10px */
+        }
+
+        .container-mixed div {
+            background-color: lightgreen;
+            border: 1px solid #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Thực hành: Thuộc tính grid-gap (gap)</h1>
+
+    <!-- Ví dụ 1 -->
+    <h2>Ví dụ 1: Thiết lập khoảng cách hàng và cột bằng nhau (20px)</h2>
+    <div class="grid-container container-equal">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+    <!-- Ví dụ 2 -->
+    <h2>Ví dụ 2: Thiết lập khoảng cách khác nhau (Hàng: 30px, Cột: 10px)</h2>
+    <div class="grid-container container-mixed">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+
+</body>
+</html>
