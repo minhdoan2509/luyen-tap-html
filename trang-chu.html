@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ Giản Lược</title>
+    <!-- Liên kết đến file CSS bên ngoài với tên gọi riêng biệt không lo trùng lặp -->
+    <link rel="stylesheet" href="style-trang-chu.css">
+</head>
+<body>
+
+    <!-- Mục 2: Phần Header cố định (Fixed Header) ở đầu trang -->
+    <header class="main-header">
+        <h1>Tiêu đề Trang Web</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Dịch vụ</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Mục 3: Thùng chứa bố cục Flexbox bao gồm Sidebar và Nội dung chính -->
+    <div class="page-container">
+        
+        <!-- Sidebar Trái -->
+        <aside class="sidebar left-sidebar">
+            <h3>Sidebar Trái</h3>
+            <ul>
+                <li>Mục 1</li>
+                <li>Mục 2</li>
+                <li>Mục 3</li>
+            </ul>
+        </aside>
+
+        <!-- Phân vùng nội dung chính chính (Main Content) -->
+        <main class="main-content">
+            <h2>Nội dung chính của trang</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </main>
+
+        <!-- Sidebar Phải -->
+        <aside class="sidebar right-sidebar">
+            <h3>Sidebar Phải</h3>
+            <p>Đây là một sidebar khác, có thể chứa quảng cáo, bài viết liên quan hoặc thông tin bổ sung tiện ích.</p>
+        </aside>
+
+    </div>
+
+</body>
+</html>
