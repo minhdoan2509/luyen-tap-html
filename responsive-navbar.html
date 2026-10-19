@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    
+    <!-- Bước 2 & Bước 3: Định dạng CSS cho giao diện Desktop, Mobile và hiệu ứng active -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 20px;
+            color: white;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .menu-icon {
+            display: none; /* Mặc định ẩn nút 3 gạch trên màn hình máy tính */
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* 📝 Cấu hình Responsive cho Mobile (Màn hình dưới 768px) */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Mặc định ẩn menu chữ trên mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #333;
+                width: 100%;
+                text-align: center;
+                z-index: 999;
+            }
+
+            .nav-links li {
+                padding: 10px;
+                margin: 0;
+            }
+
+            .menu-icon {
+                display: block; /* Hiện biểu tượng 3 gạch trên mobile */
+            }
+
+            /* Bổ sung CSS hiển thị menu khi có class .active từ JavaScript kích hoạt */
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bước 1: Tạo cấu trúc HTML thanh điều hướng -->
+    <nav class="navbar">
+        <div class="logo">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+        <div class="menu-icon">≡</div>
+    </nav>
+
+    <!-- Bước 3: Thêm mã xử lý sự kiện JavaScript trực tiếp để bật/tắt menu trên mobile -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuIcon = document.querySelector(".menu-icon");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuIcon.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+
+</body>
+</html>
