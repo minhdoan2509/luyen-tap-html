@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    
+    <!-- Bước 2 & Bước 3: Định dạng CSS Grid và làm Responsive với Media Queries -->
+    <style>
+        /* Reset khoảng cách cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Khung chứa chính áp dụng mô hình CSS Grid (Hình 2 & 3) */
+        .container {
+            display: grid;
+            /* Cột: Sidebar chiếm 1 phần (1fr), Content chiếm 3 phần (3fr) */
+            grid-template-columns: 1fr 3fr;
+            /* Hàng: Header tự động, Thân cao hết phần còn lại, Footer tự động */
+            grid-template-rows: auto 1fr auto;
+            /* Định nghĩa các vùng không gian đặt tên trực quan */
+            grid-template-areas:
+                "header header"
+                "sidebar content"
+                "footer footer";
+            height: 100vh; /* Chiều cao bao phủ toàn bộ màn hình */
+        }
+
+        /* Định kiểu cho vùng Đầu trang (Header) */
+        .header {
+            grid-area: header;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Định kiểu cho vùng Thanh bên (Sidebar) */
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #f4f4f4;
+            padding: 20px;
+            font-weight: bold;
+            border-right: 1px solid #ddd;
+        }
+
+        /* Định kiểu cho vùng Nội dung chính (Content) */
+        .content {
+            grid-area: content;
+            background-color: #ffffff;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Định kiểu cho vùng Cuối trang (Footer) */
+        .footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* ==========================================================
+           Bước 3: Làm Responsive cho Mobile bằng Media Queries (Dưới 768px)
+           ========================================================== */
+        @media (max-width: 768px) {
+            .container {
+                /* Đưa về bố cục lưới 1 cột duy nhất */
+                grid-template-columns: 1fr;
+                /* Xếp chồng 4 hàng nối đuôi nhau */
+                grid-template-rows: auto auto auto auto;
+                /* Định nghĩa lại vùng không gian xếp dọc */
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "content"
+                    "footer";
+                height: auto; /* Tự động co giãn theo chiều dài nội dung chữ */
+            }
+            
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bước 1: Khởi tạo cấu trúc HTML lưới tổng thể -->
+    <div class="container">
+        <header class="header">Header</header>
+        <nav class="sidebar">Sidebar</nav>
+        <main class="content">
+            <h2>Nội dung chính</h2>
+            <p style="margin-top: 10px;">Đây là khu vực hiển thị nội dung trung tâm của trang web. Sử dụng CSS Grid giúp việc phân chia vùng giao diện trở nên gọn gàng, mạch lạc mà không cần dùng thuộc tính float hay các kỹ thuật căn lề phức tạp cũ.</p>
+        </main>
+        <footer class="footer">Footer</footer>
+    </div>
+
+</body>
+</html>
