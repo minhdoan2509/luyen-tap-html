@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo bố cục responsive bằng CSS Grid</title>
+    <style>
+        /* Reset khoảng cách cơ bản nhằm áp kích thước Box Model chuẩn */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Khung bao bọc chính áp dụng mô hình CSS Grid điều khiển giao diện Desktop */
+        .grid-container {
+            display: grid;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 15px;
+            padding: 0 15px;
+            
+            /* Cấu hình lưới Desktop: 4 cột bằng nhau */
+            grid-template-columns: repeat(4, 1fr);
+            
+            /* Định nghĩa tên các vùng không gian trực quan */
+            grid-template-areas:
+                "header header header header"
+                "menu menu menu menu"
+                "sidebar content content content"
+                "footer footer footer footer";
+        }
+
+        /* Khối chung định hình giao diện thẻ con */
+        .box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* --- PHÂN BỔ VÙNG KHÔNG GIAN CHO TỪNG PHẦN TỬ --- */
+
+        /* Header: Hiển thị tiêu đề trang */
+        .header {
+            grid-area: header;
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navigation: Chứa menu điều hướng */
+        .nav {
+            grid-area: menu;
+            background-color: #34495e;
+            padding: 10px 20px;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Sidebar: Chứa nội dung phụ (tin tức, quảng cáo...) */
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #e8f8f5;
+            min-height: 250px;
+        }
+
+        .sidebar h3 {
+            color: #16a085;
+            margin-bottom: 10px;
+        }
+
+        /* Main Content: Khu vực hiển thị nội dung chính */
+        .content {
+            grid-area: content;
+            background-color: #fef9e7;
+            min-height: 400px;
+        }
+
+        .content h2 {
+            color: #d35400;
+            margin-bottom: 15px;
+        }
+
+        /* Footer: Hiển thị thông tin cuối trang */
+        .footer {
+            grid-area: footer;
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ==========================================================
+           YÊU CẦU RESPONSIVE: CHO THIẾT BỊ DI ĐỘNG (Dưới 768px)
+           ========================================================== */
+        @media (max-width: 768px) {
+            .grid-container {
+                /* Đưa về mạng lưới 1 cột duy nhất */
+                grid-template-columns: 1fr;
+                
+                /* Định nghĩa lại vùng không gian xếp dọc từ trên xuống dưới */
+                grid-template-areas:
+                    "header"
+                    "menu"
+                    "content"
+                    "sidebar"
+                    "footer";
+                margin: 10px auto;
+            }
+
+            .nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .sidebar, .content {
+                min-height: auto; /* Tự co giãn theo chiều dài nội dung */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cấu trúc mã nguồn phân vùng ngữ nghĩa lồng trong thẻ div Grid cha -->
+    <div class="grid-container">
+        
+        <!-- Header -->
+        <header class="box header">
+            TRANG TIN TỨC TỔNG HỢP
+        </header>
+
+        <!-- Navigation -->
+        <nav class="box nav">
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Thời sự</a></li>
+                <li><a href="#">Công nghệ</a></li>
+                <li><a href="#">Giải trí</a></li>
+            </ul>
+        </nav>
+
+        <!-- Sidebar -->
+        <aside class="box sidebar">
+            <h3>Tin nổi bật</h3>
+            <p>• Xu hướng thiết kế web mới nhất năm nay.</p>
+            <p style="margin-top: 5px;">• Khám phá sức mạnh của Grid Layout.</p>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="box content">
+            <h2>Nội dung chính bài viết</h2>
+            <p>Đây là khu vực hiển thị nội dung trung tâm của trang web. Sử dụng thuộc tính <code>grid-template-areas</code> giúp lập trình viên quản lý giao diện cực kỳ tường minh. Khi xem trên màn hình lớn (Desktop), Sidebar sẽ nằm gọn bên trái nội dung chính. Khi chuyển sang màn hình nhỏ (Mobile), thuộc tính Media Queries lập tức kích hoạt, biến toàn bộ cấu trúc thành hàng dọc nối đuôi nhau gọn gàng, tránh tuyệt đối hiện tượng tràn viền hay mất chữ.</p>
+        </main>
+
+        <!-- Footer -->
+        <footer class="box footer">
+            © 2026 Bản quyền thuộc về Hệ thống Bố cục Responsive CSS Grid. All rights reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
