@@ -1,0 +1,49 @@
+/* ==========================================================================
+   ĐỊNH KIỂU BẢNG BẰNG CSS (TỔNG HỢP THEO BÀI HỌC)
+   ========================================================================== */
+
+table {
+    /* Hình 4: Chiều rộng chiếm 100% không gian vùng chứa */
+    width: 100%;
+    
+    /* Hình 2 & Hình 9: Bỏ đường viền kép, gộp các viền liền kề làm một */
+    border-collapse: collapse;
+    
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Hình 1 & Hình 9: Áp dụng đường viền 1px liền màu đen cho bảng, tiêu đề và các ô dữ liệu */
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    /* Hình 4: Chiều cao của hàng tiêu đề là 50px */
+    height: 50px;
+    
+    /* Hình 5 & Hình 6: Căn chỉnh nội dung văn bản trong ô tiêu đề về bên trái */
+    text-align: left;
+    
+    /* Hình 9: Đặt màu nền tối và màu chữ trắng tương phản cho hàng tiêu đề */
+    background-color: #333;
+    color: white;
+    
+    /* Hình 8: Tạo khoảng cách đệm 15px để nội dung không bị sát đường viền */
+    padding: 15px;
+}
+
+td {
+    /* Hình 7: Chiều cao của các ô dữ liệu là 80px */
+    height: 80px;
+    
+    /* Hình 7: Căn chỉnh nội dung text nằm xuống phía đáy của ô (bottom) */
+    vertical-align: bottom;
+    
+    /* Hình 9: Đặt màu nền xám nhạt và màu chữ xám đậm cho các ô dữ liệu */
+    background-color: #f2f2f2;
+    color: #333;
+    
+    /* Hình 8: Tạo khoảng cách đệm 15px xung quanh nội dung ô dữ liệu */
+    padding: 15px;
+}
