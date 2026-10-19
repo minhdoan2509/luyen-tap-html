@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành thuộc tính flex-grow</title>
+    <style>
+        /* Reset khoảng cách cơ bản để tính toán kích thước hộp chuẩn xác */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* 📦 Khung chứa Flex Container bao ngoài */
+        .container {
+            display: flex;        /* Kích hoạt mô hình bố cục Flexbox */
+            gap: 15px;            /* Khoảng cách giữa các khối phần tử con */
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #34495e;
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Định kiểu cấu trúc nền chung cho 5 phần tử con (Flex Items) */
+        .item {
+            padding: 25px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+            background-color: #dff9fb;
+            border: 1px solid #7ed6df;
+            border-radius: 4px;
+            
+            /* Đặt flex-grow mặc định bằng 0 (không tự động tăng kích thước) */
+            flex-grow: 0; 
+            /* Đặt chiều rộng cơ sở ban đầu bằng nhau cho mọi item */
+            flex-basis: 100px; 
+            
+            transition: all 0.3s ease;
+        }
+
+        /* 💡 Yêu cầu đề bài: Áp dụng flex-grow trên div thứ 2 giúp nó phát triển vượt trội */
+        .item-special {
+            background-color: #ff7675; /* Đổi màu đỏ cam nổi bật */
+            border-color: #e74c3c;
+            color: #ffffff;
+            
+            /* Thiết lập giá trị tăng trưởng là 1 (hoặc số bất kỳ lớn hơn 0) */
+            /* Ô này sẽ hút toàn bộ không gian trống còn thừa trong Container để giãn rộng ra */
+            flex-grow: 1; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Thực hành: Thuộc tính flex-grow</h1>
+    <p class="description">Ví dụ thực tế gồm 5 phần tử con lồng nhau. Phần tử thứ 2 (màu đỏ) được áp dụng thuộc tính flex-grow.</p>
+
+    <!-- Hộp chứa lớn chứa đúng 5 khối phần tử con theo yêu cầu -->
+    <div class="container">
+        <div class="item">Div 1</div>
+        <div class="item item-special">Div 2 (Grow)</div>
+        <div class="item">Div 3</div>
+        <div class="item">Div 4</div>
+        <div class="item">Div 5</div>
+    </div>
+
+</body>
+</html>
