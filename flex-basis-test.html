@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành thuộc tính flex-basis tổng hợp</title>
+    <style>
+        /* Thiết lập Box Model chuẩn */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 35px;
+            font-size: 16px;
+            border-left: 4px solid #2ecc71;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Khung chứa Flex Container chung */
+        .container {
+            display: flex;
+            gap: 15px;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #dcdde1;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        /* Định kiểu chung cho các ô con Flex Items */
+        .item {
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- TRƯỜNG HỢP 1: Sử dụng đơn vị cố định px --- */
+        .c-px .item { background-color: #dff9fb; border: 1px solid #7ed6df; color: #130cb7; }
+        .c-px .item1 { flex-basis: 250px; }
+        .c-px .item2 { flex-basis: 150px; }
+
+        /* --- TRƯỜNG HỢP 2: Sử dụng đơn vị phần trăm % --- */
+        .c-percent .item {
+            background-color: #fce4ec;
+            border: 1px solid #f06292;
+            color: #c2185b;
+            flex-basis: 50%; /* Chia đều mỗi ô chiếm 50% trục chính */
+        }
+
+        /* --- TRƯỜNG HỢP 3: Trục chính đổi sang chiều dọc (flex-direction: column) --- */
+        .c-column {
+            flex-direction: column;
+            height: 350px; /* Định chiều cao cha để flex-basis tính toán trục dọc */
+        }
+        .c-column .item {
+            background-color: #e8f8f5;
+            border: 1px solid #2ecc71;
+            color: #117a65;
+            flex-basis: 80px; /* flex-basis lúc này xác định CHIỀU CAO ban đầu là 80px */
+        }
+
+        /* --- TRƯỜNG HỢP 4: Kết hợp flex-basis nâng cao với flex-grow --- */
+        .c-grow {
+            max-width: 700px;
+        }
+        .c-grow .item { background-color: #fef9e7; border: 1px solid #f1c40f; color: #b7950b; }
+        .c-grow .item-g1 { flex-basis: 120px; flex-grow: 1; }
+        .c-grow .item-g2 { flex-basis: 120px; flex-grow: 2; } /* Ô này nhận không gian trống gấp đôi */
+        .c-grow .item-g1-alt { flex-basis: 120px; flex-grow: 1; }
+    </style>
+</head>
+<body>
+
+    <h1>Báo Cáo Thực Hành: Thuộc Tính flex-basis</h1>
+
+    <!-- 1. Thử nghiệm đơn vị px -->
+    <h2>1. Trường hợp sử dụng đơn vị px (Xác định chiều rộng cơ sở)</h2>
+    <div class="container c-px">
+        <div class="item item1">Cơ sở 250px</div>
+        <div class="item item2">Cơ sở 150px</div>
+    </div>
+
+    <!-- 2. Thử nghiệm đơn vị % -->
+    <h2>2. Trường hợp sử dụng đơn vị tỷ lệ phần trăm %</h2>
+    <div class="container c-percent">
+        <div class="item">Cột chiếm 50%</div>
+        <div class="item">Cột chiếm 50%</div>
+    </div>
+
+    <!-- 3. Thử nghiệm flex-direction: column -->
+    <h2>3. Trường hợp flex-direction: column (flex-basis tác động chiều dọc)</h2>
+    <div class="container c-column">
+        <div class="item">Hàng 1 (Chiều cao cơ sở 80px)</div>
+        <div class="item">Hàng 2 (Chiều cao cơ sở 80px)</div>
+    </div>
+
+    <!-- 4. Kết hợp nâng cao với flex-grow -->
+    <h2>4. Kết hợp nâng cao: flex-basis (120px) với flex-grow (Tỷ lệ giãn 1 : 2 : 1)</h2>
+    <div class="container c-grow">
+        <div class="item item-g1">Grow 1</div>
+        <div class="item item-g2">Grow 2 (Giãn rộng nhất)</div>
+        <div class="item item-g1-alt">Grow 1</div>
+    </div>
+
+</body>
+</html>
