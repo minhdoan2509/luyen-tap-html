@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành thuộc tính flex-flow</title>
+    <style>
+        /* Reset cơ bản để tính toán kích thước chuẩn */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 16px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Định dạng chung cho khối div con Flex Items theo cấu trúc đề bài */
+        .grid-item {
+            color: white;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* -------------------------------------------------------------
+           Ví dụ 1: flex-flow: row nowrap (Màu xanh dương)
+           ------------------------------------------------------------- */
+        .container-1 {
+            display: flex;
+            flex-flow: row nowrap;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .container-1 > div {
+            background-color: #007bff;
+        }
+
+        /* -------------------------------------------------------------
+           Ví dụ 2: flex-flow: row-reverse nowrap (Màu xanh lá)
+           ------------------------------------------------------------- */
+        .container-2 {
+            display: flex;
+            flex-flow: row-reverse nowrap;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .container-2 > div {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Thực hành: Thuộc tính flex-flow</h1>
+
+    <!-- 1. Khối hiển thị Ví dụ 1 -->
+    <h2>1. flex-flow: row nowrap (Trái qua phải, xếp hàng ngang)</h2>
+    <div class="container-1">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+    </div>
+
+    <!-- 2. Khối hiển thị Ví dụ 2 -->
+    <h2>2. flex-flow: row-reverse nowrap (Phải qua trái, đảo ngược thứ tự)</h2>
+    <div class="container-2">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+    </div>
+
+</body>
+</html>
