@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tạo form lấy survey khách hàng</title>
+    <style>
+        /* CSS căn chỉnh bố cục toàn trang phỏng theo phong cách Wufoo */
+        body {
+            font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+            background-color: #f0f4f8;
+            margin: 40px 0;
+            color: #2c3e50;
+        }
+        .survey-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border-top: 5px solid #34495e;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 26px;
+            color: #2c3e50;
+        }
+        .description {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #dcdde1;
+            padding-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label.main-label {
+            display: block;
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        .required {
+            color: #e74c3c;
+            margin-left: 3px;
+        }
+        /* Cấu trúc nhập liệu chữ */
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #fafafa;
+        }
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border-color: #34495e;
+            background-color: #fff;
+            outline: none;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        /* Cấu trúc nhóm Radio và Checkbox */
+        .option-list {
+            margin-top: 5px;
+        }
+        .option-item {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .option-item input {
+            margin-right: 8px;
+            transform: scale(1.1);
+            vertical-align: middle;
+        }
+        /* Căn chỉnh nút bấm gửi biểu mẫu */
+        .btn-submit {
+            background-color: #34495e;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<div class="survey-container">
+    <h1>Market Research Survey</h1>
+    <p class="description">Vui lòng dành chút thời gian hoàn thành biểu mẫu khảo sát ý kiến khách hàng dưới đây.</p>
+    
+    <form action="#" method="POST">
+        
+        <!-- Câu hỏi 1: Nhóm tuổi (Dùng Select Box) -->
+        <div class="form-group">
+            <label class="main-label">What is your age category?<span class="required">*</span></label>
+            <select name="age_group" required>
+                <option value="">-- Chọn nhóm tuổi --</option>
+                <option value="under_18">Dưới 18 tuổi</option>
+                <option value="18_24">18 - 24 tuổi</option>
+                <option value="25_34">25 - 34 tuổi</option>
+                <option value="35_54">35 - 54 tuổi</option>
+                <option value="above_54">Trên 54 tuổi</option>
+            </select>
+        </div>
+
+        <!-- Câu hỏi 2: Giới tính (Dùng Radio Buttons) -->
+        <div class="form-group">
+            <label class="main-label">What is your gender?</label>
+            <div class="option-list">
+                <label class="option-item"><input type="radio" name="gender" value="Male"> Nam</label>
+                <label class="option-item"><input type="radio" name="gender" value="Female"> Nữ</label>
+                <label class="option-item"><input type="radio" name="gender" value="Other"> Khác</label>
+            </div>
+        </div>
+
+        <!-- Câu hỏi 3: Tần suất sử dụng dịch vụ (Dùng Radio Buttons) -->
+        <div class="form-group">
+            <label class="main-label">How often do you use our products?</label>
+            <div class="option-list">
+                <label class="option-item"><input type="radio" name="frequency" value="Daily"> Hàng ngày</label>
+                <label class="option-item"><input type="radio" name="frequency" value="Weekly"> Hàng tuần</label>
+                <label class="option-item"><input type="radio" name="frequency" value="Monthly"> Hàng tháng</label>
+                <label class="option-item"><input type="radio" name="frequency" value="Rarely"> Hiếm khi</label>
+            </div>
+        </div>
+
+        <!-- Câu hỏi 4: Lý do chọn sản phẩm (Dùng Checkboxes - Chọn nhiều) -->
+        <div class="form-group">
+            <label class="main-label">What features do you value most? (Select all that apply)</label>
+            <div class="option-list">
+                <label class="option-item"><input type="checkbox" name="features" value="Quality"> Chất lượng sản phẩm</label>
+                <label class="option-item"><input type="checkbox" name="features" value="Price"> Giá cả hợp lý</label>
+                <label class="option-item"><input type="checkbox" name="features" value="Support"> Dịch vụ hỗ trợ tốt</label>
+                <label class="option-item"><input type="checkbox" name="features" value="Design"> Thiết kế đẹp mắt</label>
+            </div>
+        </div>
+
+        <!-- Câu hỏi 5: Ý kiến đóng góp thêm (Dùng Textarea) -->
+        <div class="form-group">
+            <label class="main-label">Do you have any other comments or suggestions?</label>
+            <textarea name="comments" placeholder="Nhập ý kiến đóng góp của bạn tại đây..."></textarea>
+        </div>
+
+        <!-- Nút gửi dữ liệu khảo sát -->
+        <div class="form-group">
+            <button type="submit" class="btn-submit">Submit Survey</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
