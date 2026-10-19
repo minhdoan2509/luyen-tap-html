@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành Tạo bố cục cơ bản</title>
+    <style>
+        /* 1. Bộ chọn body cố định phông chữ cho cả trang */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f6fa;
+        }
+
+        /* 1. Bộ chọn #main cố định độ rộng vùng thông tin, căn giữa màn hình */
+        #main {
+            width: 960px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            overflow: hidden; /* Giúp bao bọc các phần tử float bên trong */
+        }
+
+        /* 2. Bộ chọn #head xác định chiều cao, màu nền, đường viền, khoảng cách */
+        #head {
+            height: 100px;
+            background-color: #34495e;
+            color: #ffffff;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 10px; /* Khoảng cách so với vùng bên dưới */
+        }
+
+        /* 4. Bộ chọn #head-link xác định vùng đặt các liên kết đầu trang */
+        #head-link {
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            margin-bottom: 15px;
+        }
+
+        #head-link ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        #head-link ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Thùng chứa trung tâm bao bọc 3 cột (Trái, Chính, Phải) */
+        .content-wrapper {
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        /* 6. Bộ chọn #left xác định vùng nội dung bên trái, rộng 200px, cao tối thiểu 400px, float: left */
+        #left {
+            width: 200px;
+            min-height: 400px;
+            float: left;
+            background-color: #e8f8f5;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        /* 8. Bộ chọn #content xác định phân vùng nội dung chính ở giữa */
+        #content {
+            width: 510px; /* Tổng width (200 + 510 + 200) + gap = 930px vừa vặn trong khung 960px */
+            min-height: 400px;
+            float: left;
+            background-color: #fef9e7;
+            margin: 0 10px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        /* 8. Bộ chọn #right bộ chọn cho phân vùng thông tin bên phải */
+        #right {
+            width: 200px;
+            min-height: 400px;
+            float: right;
+            background-color: #eaeded;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        /* Khử float (Clearfix) để tránh lỗi sập khung container */
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* 10. Bộ chọn #footer cho phân vùng cuối trang */
+        #footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 15px;
+            font-size: 13px;
+            clear: both; /* Đảm bảo luôn nằm dưới cùng tách biệt hoàn toàn float */
+        }
+
+        /* Định dạng các tiêu đề nhỏ trong các phân vùng */
+        h2, h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        #head h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Thẻ div cha #main cố định độ rộng cấu trúc toàn trang -->
+    <div id="main">
+
+        <!-- 2. Phân vùng đầu trang #head (Logo và banner) -->
+        <header id="head">
+            <h1>LOGO / BANNER CÔNG TY</h1>
+        </header>
+
+        <!-- 3 & 4. Phân vùng liên kết đầu trang #head-link -->
+        <nav id="head-link">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Students</a></li>
+                <li><a href="#">Course</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- Thùng chứa trung tâm áp dụng clearfix xử lý dòng chảy float của 3 cột -->
+        <div class="content-wrapper clearfix">
+            
+            <!-- 6. Phân vùng nội dung bên trái #left -->
+            <aside id="left">
+                <h3>Left Sidebar</h3>
+                <p>Các liên kết trái...</p>
+            </aside>
+
+            <!-- 5 & 8. Phân vùng nội dung chính #content -->
+            <main id="content">
+                <h2>Nội dung chính của trang</h2>
+                <p>Hot news, Photo Slide, News 1, v.v...</p>
+                <p>Nội dung thông tin chi tiết hiển thị ở phân vùng trung tâm.</p>
+            </main>
+
+            <!-- 8 & 9. Phân vùng nội dung bên phải #right -->
+            <aside id="right">
+                <h3>Right Sidebar</h3>
+                <p>Lịch, biểu đồ, bản đồ...</p>
+            </aside>
+
+        </div>
+
+        <!-- 10 & 11. Phân vùng thông tin cuối trang #footer -->
+        <footer id="footer">
+            <p>© 2026 Thông tin về chủ sở hữu và các liên kết điều khoản bản quyền.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
