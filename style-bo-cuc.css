@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    margin: 40px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Nhiệm vụ 3: Áp dụng các thuộc tính CSS chung cho tất cả các thẻ .card */
+.card {
+    width: 280px;
+    height: 150px;
+    padding: 20px;
+    border: 5px solid #3498db; /* Viền 5px solid màu xanh dương */
+    margin: 20px;
+    display: inline-block;     /* Xếp các thẻ nằm cạnh nhau để dễ so sánh */
+    vertical-align: top;
+    color: white;
+    border-radius: 6px;
+}
+
+/* Tùy chỉnh riêng cho từng thẻ theo cấu trúc yêu cầu */
+
+/* Thẻ đầu tiên: content-box và nền màu xanh lá cây */
+.card:nth-child(1) {
+    box-sizing: content-box;
+    background-color: #2ecc71;
+}
+
+/* Thẻ thứ hai: border-box và nền màu vàng */
+.card:nth-child(2) {
+    box-sizing: border-box;
+    background-color: #f1c40f;
+    color: #333; /* Giảm màu chữ cho dễ đọc trên nền vàng */
+}
+
+/* Thẻ thứ ba: border-box và nền màu đỏ */
+.card:nth-child(3) {
+    box-sizing: border-box;
+    background-color: #e74c3c;
+}
