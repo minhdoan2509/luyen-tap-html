@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập tổng hợp flex-wrap</title>
+    <style>
+        /* Reset cơ bản để tính toán Box Model chuẩn xác */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .note {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* 📝 Khung chứa Flex Container theo đúng yêu cầu trong ảnh ví dụ */
+        .container {
+            display: flex;
+            flex-direction: row; /* Sắp xếp các phần tử theo hàng ngang */
+            flex-wrap: wrap;       /* Cho phép tự động xuống dòng khi thiếu không gian */
+            gap: 20px;           /* Khoảng cách giữa các hàng và các cột là 20px */
+            
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #2c3e50;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Định kiểu cho các khối phần tử con (Flex Items) để dễ quan sát sự thích ứng */
+        .item {
+            background-color: #3498db;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 4px;
+            /* Chiều rộng cơ bản khoảng 230px, kết hợp gap sẽ tự động chia 3 cột trên màn hình rộng */
+            flex: 1 1 230px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bài tập tổng hợp thuộc tính flex-wrap</h1>
+    <p class="note">Bố cục Flexbox thông minh có khả năng tự thích ứng (Responsive) tốt trên các kích thước màn hình khác nhau.</p>
+
+    <!-- Khung chứa lưới Flexbox có khả năng tự động bọc dòng -->
+    <div class="container">
+        <div class="item">Phần tử 1</div>
+        <div class="item">Phần tử 2</div>
+        <div class="item">Phần tử 3</div>
+        <div class="item">Phần tử 4</div>
+        <div class="item">Phần tử 5</div>
+        <div class="item">Phần tử 6</div>
+    </div>
+
+</body>
+</html>
