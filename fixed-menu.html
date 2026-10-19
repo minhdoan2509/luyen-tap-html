@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://w3.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hướng dẫn tạo Fixed Menu</title>
+    
+    <!-- Bước 3: Thêm mã CSS để định dạng thanh menu và tạo thanh cuộn trang -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Định cấu trúc thanh menu cố định ở đầu trang */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed; /* Giữ menu cố định ở một vị trí trên màn hình */
+            top: 0;          /* Định vị menu ở sát mép trên cùng */
+            width: 100%;     /* Đặt độ rộng menu bằng 100% chiều ngang màn hình */
+            z-index: 1000;   /* Đảm bảo menu luôn nổi lên trên nội dung khác khi cuộn */
+        }
+
+        /* Định kiểu cho các thẻ liên kết bên trong menu */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Hiệu ứng đổi màu nền khi di chuột qua các nút bấm menu */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Định kiểu khoảng cách cho vùng nội dung chính */
+        .main {
+            padding: 16px;
+            margin-top: 50px;    /* Đẩy nội dung xuống để không bị thanh menu che mất */
+            height: 1500px;      /* Chiều cao lớn (1500px) mục đích tạo thanh cuộn trang để chạy thử nghiệm */
+            background-color: #f9f9f9;
+        }
+        
+        .main p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bước 2: Thêm cấu trúc thanh menu điều hướng navbar -->
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+
+    <!-- Cấu trúc phân vùng nội dung chính main -->
+    <div class="main">
+        <h1>Fixed Top Menu</h1>
+        <h2>The navigation bar will stay at the top of the page while scrolling</h2>
+        
+        <p>Some text some text some text some text...</p>
+        <p>Some text some text some text some text...</p>
+        <p><i>(Bạn hãy thử cuộn chuột xuống dưới, bạn sẽ thấy thanh menu màu đen chứa các nút Home, News... vẫn luôn nằm cố định ở góc trên cùng của màn hình mà không bị trôi mất!)</i></p>
+    </div>
+
+</body>
+</html>
