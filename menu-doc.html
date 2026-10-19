@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Thực hành Tạo menu dọc dropdown</title>
+    <style>
+        /* Định cấu trúc cơ bản cho toàn trang */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f6fa;
+        }
+
+        /* Định nghĩa khung chứa menu bên ngoài (id là menu) */
+        #menu {
+            width: 160px; /* Độ rộng vừa vặn với kích thước các mục con */
+        }
+
+        /* Loại bỏ dấu chấm tròn mặc định của mọi danh sách ul bên trong menu */
+        #menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Định kiểu cho các phần tử danh sách (li) của menu */
+        #menu li {
+            list-style-type: none; /* Bỏ ký hiệu đầu dòng */
+            position: relative;    /* Cho phép các danh sách con được đặt cạnh phần tử chứa nó */
+            width: 140px;          /* Cố định chiều rộng (tính cả padding sẽ vừa vặn khung) */
+            height: 30px;          /* Cố định chiều cao */
+            padding: 0 10px;       /* Cố định lề trái và phải (0px trên dưới, 10px hai bên) */
+            background-color: black; /* Đổi màu nền sang màu đen */
+            line-height: 30px;     /* Cố định chiều cao cho mỗi dòng văn bản bên trong */
+            cursor: pointer;       /* Chuyển biểu tượng con trỏ chuột sang hình bàn tay */
+            border-bottom: 1px solid #333; /* Thêm đường viền nhỏ phân cách các mục */
+        }
+
+        /* Định kiểu cho thẻ liên kết (a) bên trong các mục chọn */
+        #menu li a {
+            text-decoration: none; /* Bỏ các gạch chân của liên kết */
+            color: white;          /* Đổi màu liên kết sang màu trắng */
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Thay đổi màu nền khi đưa chuột qua các mục chọn (li:hover) */
+        #menu li:hover {
+            background-color: #333333; /* Đổi màu nền sang xám đậm khi di chuột vào */
+        }
+
+        /* Định kiểu cấu trúc dành cho các danh sách con (Menu cấp 2) */
+        #menu li ul {
+            position: absolute;   /* Cố định vị trí xuất hiện của danh sách con */
+            top: 0;               /* Xác định vị trí góc trên trái của khung chứa danh sách con (ngang hàng mẹ) */
+            left: 160px;          /* Đẩy menu con sang cạnh bên phải của menu mẹ (bằng tổng chiều rộng của li + padding) */
+            visibility: hidden;   /* Mặc định ẩn đi menu con này khi chưa tương tác */
+        }
+
+        /* Kích hoạt hiển thị danh sách con khi phần tử cha bị đưa con trỏ chuột qua (li:hover ul) */
+        #menu li:hover ul {
+            visibility: visible;  /* Cho phép danh sách con tương ứng hiển thị lên */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Menu dọc Dropdown</h1>
+    <p>Di chuột vào mục <b>"Sản phẩm"</b> hoặc <b>"Dịch vụ"</b> để xem menu con bật ngang sang bên phải.</p>
+
+    <!-- Cấu trúc vùng div (id là menu) chứa các danh sách không thứ tự lồng nhau -->
+    <div id="menu">
+        <ul>
+            <li><a href="#trangchu">Trang chủ</a></li>
+            <li>
+                <a href="#sanpham">Sản phẩm</a>
+                <!-- Danh sách con lồng bên trong (Menu cấp 2) -->
+                <ul>
+                    <li><a href="#sp1">Điện thoại</a></li>
+                    <li><a href="#sp2">Máy tính</a></li>
+                    <li><a href="#sp3">Phụ kiện</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#dichvu">Dịch vụ</a>
+                <!-- Danh sách con lồng bên trong (Menu cấp 2) -->
+                <ul>
+                    <li><a href="#dv1">Bảo hành</a></li>
+                    <li><a href="#dv2">Sửa chữa</a></li>
+                </ul>
+            </li>
+            <li><a href="#lienhe">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
