@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bố cục bằng Float</title>
+    
+    <!-- Bước 2: Nhúng mã CSS để dàn trang hai cột bằng float và xử lý tràn bằng clear -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f6fa;
+        }
+
+        /* .container: Bao bọc toàn bộ bố cục */
+        .container {
+            width: 100%;
+        }
+
+        /* .left-column: Cột bên trái chứa nội dung chính (chiếm 60%) */
+        .left-column {
+            width: 60%;
+            float: left;
+            background-color: lightblue;
+            padding: 20px;
+            box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng cột */
+            min-height: 200px;
+        }
+
+        /* .right-column: Cột bên phải chứa sidebar (chiếm 38%) */
+        .right-column {
+            width: 38%;
+            float: right;
+            background-color: lightgreen;
+            padding: 20px;
+            box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng cột */
+            min-height: 200px;
+        }
+
+        /* Xử lý float bằng pseudo-element ::after để tránh lỗi tràn bố cục */
+        .container::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bước 1: Tạo cấu trúc tài liệu HTML với khung container và hai cột -->
+    <div class="container">
+        <div class="left-column">
+            <h3>Cột bên trái</h3>
+            <p>Chứa nội dung chính của trang web. Cột này chiếm 60% chiều rộng khung chứa.</p>
+        </div>
+        <div class="right-column">
+            <h3>Cột bên phải</h3>
+            <p>Chứa sidebar hoặc thông tin bổ sung. Cột này chiếm 38% chiều rộng khung chứa.</p>
+        </div>
+    </div>
+
+</body>
+</html>
